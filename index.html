@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Valentine's Day</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebf2;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: #ff66a3;
+            border: 3px solid #cc0052;
+            bottom: 0;
+            cursor: pointer;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .box.lid {
+            position: absolute;
+            width: 200px;
+            height: 50px;
+            background-color: #ff3385;
+            top: 0;
+            transform-origin: bottom;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .flowers {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .message {
+            font-size: 20px;
+            font-weight: bold;
+            color: #cc0052;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .opened .box.lid {
+            transform: rotateX(180deg);
+        }
+
+        .opened .flowers, 
+        .opened .message {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌹 Clique na caixa para abrir seu presente! 🌹</h1>
+    <div class="container" onclick="openBox()">
+        <div class="box lid"></div>
+        <div class="box"></div>
+        <img class="flowers" src="https://i.imgur.com/6Y1U2z6.png" width="150" alt="Flores">
+    </div>
+    <p class="message">💖 Te amo! Feliz Valentine's Day! 💖</p>
+
+    <script>
+        function openBox() {
+            document.querySelector('.container').classList.add('opened');
+        }
+    </script>
+</body>
+</html>
